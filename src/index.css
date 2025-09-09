@@ -34,3 +34,14 @@
 #navLinks{
     font-family: 'Franca', sans-serif;
 }
+#badge{
+    font-family: 'Proxima', sans-serif;
+    font-weight: 500;
+}
+#titleSorta{
+    font-family: 'Proxima',sans-serif;
+    font-weight: 400;
+}
+#descp{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}

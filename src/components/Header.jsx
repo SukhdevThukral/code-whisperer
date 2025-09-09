@@ -8,8 +8,8 @@ export default function Header(){
             <div className='container mx-auto flex flex-wrap items-center justify-between p-5'>
             {/* stupid section graaaahhh */}
             <div className="flex items-center space-x-3">
-                <img src={logo} alt="Logo" className='w-10 h-10'></img>
-                <span className='text-xl font-bold mt-2' id="logoText">CodeWhisperer</span>
+                <img src={logo} alt="Logo" className='w-15 h-15'></img>
+                <span className='text-xl font-semibold mt-2' id="logoText">CodeWhisperer</span>
             </div>
 
             {/*nav links*/}
