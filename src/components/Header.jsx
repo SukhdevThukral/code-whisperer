@@ -24,7 +24,7 @@ export default function Header(){
                 </a>
                 <a href='#' className='flex items-center transition-colors duration-200'>
                     <img src={meGIF} alt='meIcon' className='w-9 h-9 mr-2 object-contain'/>
-                    readme
+                    sauce
                 </a>
             </nav>
             {/*try ts out button*/}
