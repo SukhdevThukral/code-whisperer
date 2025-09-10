@@ -1,12 +1,21 @@
+import heroImg from '../assets/canvaText.png'
+import heroImg1 from '../assets/canvaText1.png'
 
 export default function HeroSection(){
     return(
         <>
-        <section className="bg-black text-white py-28">
-            <div className="container mx-auto px-5">
+        <section className="bg-black text-white py-10">
+            <div className="container mx-auto px-1">
+                <div className='mb-9 justify-center'>
+                    <img
+                        src={heroImg1}
+                        alt="canva"
+                        className="rounded-lg shadow-lg w-full h-[750px] max-w-[2000px]"
+                    />
+                </div>
                 <div className="space-y-9">
                     <div className="inline-flex items-center rounded-md bg-[#242424] px-3 py-1 text-sm text-gray-300 shadow-md" id="badge">
-                        <i class="bi bi-cpu mr-2 p-[6px]"></i>
+                        <i class="bi bi-cpu mr-2 p-[1px]"></i>
                         AI INTEGRATED
                     </div>
                     <div className="flex-inline items-between text-7xl py-3" id="titleSorta">

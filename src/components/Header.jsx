@@ -4,7 +4,7 @@ import meGIF from '../assets/adrian_nub.gif'
 export default function Header(){
     return(
         <>
-        <header className="flex items-center justify-between p-3 bg-black text-white">
+        <header className="flex items-center justify-between p-1 bg-black text-white">
             <div className='container mx-auto flex flex-wrap items-center justify-between p-5'>
             {/* stupid section graaaahhh */}
             <div className="flex items-center space-x-3">
