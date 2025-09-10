@@ -4,9 +4,9 @@ import heroImg1 from '../assets/canvaText1.png'
 export default function HeroSection(){
     return(
         <>
-        <section className="bg-black text-white py-13">
+        <section className="bg-black text-white py-10">
             <div className="container mx-auto px-1">
-                <div className='mb-25 justify-center'>
+                <div className='mb-18 justify-center'>
                     <img
                         src={heroImg1}
                         alt="canva"

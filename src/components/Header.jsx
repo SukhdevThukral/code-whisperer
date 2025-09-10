@@ -1,11 +1,12 @@
 import logo from '../assets/starsiege.png'
 import meGIF from '../assets/adrian_nub.gif'
+import sauceGIF from '../assets/me.gif'
 
 export default function Header(){
     return(
         <>
         <header className="flex items-center justify-between p-1 bg-black text-white">
-            <div className='container mx-auto flex flex-wrap items-center justify-between p-5'>
+            <div className='container mx-auto flex flex-wrap items-center justify-between p-3'>
             {/* stupid section graaaahhh */}
             <div className="flex items-center space-x-3">
                 <img src={logo} alt="Logo" className='w-15 h-15'></img>
@@ -23,7 +24,7 @@ export default function Header(){
                     readme
                 </a>
                 <a href='#' className='flex items-center transition-colors duration-200'>
-                    <img src={meGIF} alt='meIcon' className='w-9 h-9 mr-2 object-contain'/>
+                    <img src={sauceGIF} alt='meIcon' className='w-5 h-5 ml-1 mr-2 object-contain'/>
                     sauce
                 </a>
             </nav>
