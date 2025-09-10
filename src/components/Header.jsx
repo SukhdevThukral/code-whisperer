@@ -15,7 +15,7 @@ export default function Header(){
 
             {/*nav links*/}
             <nav className='flex flex-wrap space-x-4 mt-3 sm:mt-0' id="navLinks">
-                <a href='#' className='flex items-center transition-colors duration-200'>
+                <a href='sukhdevthukral.xyz' className='flex items-center transition-colors duration-200'>
                     <img src={meGIF} alt='meIcon' className='w-9 h-9 mr-2 object-contain'/>
                     me me me
                 </a>
@@ -23,7 +23,7 @@ export default function Header(){
                     <img src={meGIF} alt='meIcon' className='w-9 h-9 mr-2 object-contain'/>
                     readme
                 </a>
-                <a href='#' className='flex items-center transition-colors duration-200'>
+                <a href='https://github.com/SukhdevThukral/code-whisperer' className='flex items-center transition-colors duration-200'>
                     <img src={sauceGIF} alt='meIcon' className='w-5 h-5 ml-1 mr-2 object-contain'/>
                     sauce
                 </a>

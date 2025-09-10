@@ -1,7 +1,7 @@
 export default function Footer(){
     return(
         <>
-        <section class="relative bg-gradient-to-b from-black to-gray-900 py-24 px-6 overflow-hidden" id="newsletter"/>
+        <section class="relative bg-gradient-to-b from-black to-gray-900 py-22 px-6 overflow-hidden" id="newsletter"/>
         <footer className='bg-gray-900 text-gray-300 px-8 py-12'>
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-10">
                 <div className="md:flex-1">
