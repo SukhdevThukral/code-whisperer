@@ -4,13 +4,13 @@ import heroImg1 from '../assets/canvaText1.png'
 export default function HeroSection(){
     return(
         <>
-        <section className="bg-black text-white py-10">
+        <section className="bg-black text-white py-13">
             <div className="container mx-auto px-1">
-                <div className='mb-9 justify-center'>
+                <div className='mb-25 justify-center'>
                     <img
                         src={heroImg1}
                         alt="canva"
-                        className="rounded-lg shadow-lg w-full h-[750px] max-w-[2000px]"
+                        className="rounded-lg shadow-lg w-full h-[750px] max-w-[1990px]"
                     />
                 </div>
                 <div className="space-y-9">
