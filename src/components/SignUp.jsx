@@ -26,10 +26,12 @@ export default function SignUp(){
                     <p className="text-gray-400 mb-8">Enter your personal data to create your account</p>
 
                     <div className="flex space-x-4 mb-6">
-                        <button className="flex-1 flex bg-gray-900 text-white py-2 rounded shadow hover:bg-gray-700">
+                        <button className="flex-1 flex items-center justify-center gap-2 border border-gray-700 bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-900 transition">
+                            <img src='https://www.svgrepo.com/show/475656/google-color.svg' alt='Google' className='w-5 h-5'/>
                             Google
                         </button>
-                        <button className="flex-1 bg-gray-800 text-white py-2 rounded shadow hover:bg-gray-700">
+                        <button className="flex-1 flex items-center justify-center gap-2 border border-gray-700 bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-900 transition">
+                            <img src='https://www.svgrepo.com/show/512317/github-142.svg' alt='Github' className='w-5 h-5'/>
                             Github
                         </button>
                     </div>
@@ -37,10 +39,10 @@ export default function SignUp(){
 
                     <form className="space-y-4">
                         <div className="flex space-x-4">
-                            <input type="text" placeholder="First Name" className="rounded bg-[#333] text-white flex-1 p-3"/>
-                            <input type="text" placeholder="Last Name" className="rounded bg-[#333] text-white flex-1 p-3"/>
-                            <input type="email" placeholder="Email" className="rounded bg-[#333] text-white w-full p-3"/>
-                            <input type="password" placeholder="Password (at least 8 characters)" className="rounded bg-[#333] text-white w-full p-3"/>
+                            <input type="text" placeholder="eg. Smith" className="rounded-md bg-[#111] text-white flex-1 p-3 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
+                            <input type="text" placeholder="eg. Francisco" className="rounded-md bg-[#111] text-white flex-1 p-3 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
+                            <input type="email" placeholder="Email" className="w-full rounded-md bg-[#111] text-white p-3 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
+                            <input type="password" placeholder="Enter your password" className="w-full rounded-md bg-[#111] text-white p-3 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500 pr-10"/>
 
                             <button type="submit" className="w-full bg-white text-black p-3 rounded hover:bg-gray-200">
                                 Sign Up
