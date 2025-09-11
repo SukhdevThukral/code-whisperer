@@ -1,26 +1,34 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'
-import Header from './components/Header.jsx'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import './App.css';
+import Header from './components/Header.jsx';
 import HeroSection from './components/HeroSection.jsx';
-import Footer from './components/Footer.jsx'
-import SignUp from './components/SignUp.jsx'
+import Footer from './components/Footer.jsx';
+import SignUp from './components/SignUp.jsx';
+
+function Layout({children}){
+  const location = useLocation();
+  const hideHeaderFooter = location.pathname === '/signup';
+
+  return (
+    <>
+      {!hideHeaderFooter && <Header/>}
+      {children}
+      {!hideHeaderFooter && <Footer/>}
+    </>
+  );
+}
 
 function App(){
   return (
     <Router>
-      <div className="min-h-screen bg-black text-white">
-        <Header />
+      <Layout>
         <Routes>
-          <Route path='/' element={<HeroSection/>}/>
-          <Route path='/signup' element={<SignUp/>}/>
+          <Route path="/" element={<HeroSection/>} />
+          <Route path="/signup" element={<SignUp/>} />
         </Routes>
-        <Footer/>
-      </div>
+      </Layout>
     </Router>
-  );  
+  );
 }
 
-
-
-export default App
+export default App;
