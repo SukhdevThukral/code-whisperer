@@ -1,5 +1,6 @@
 import heroImg from '../assets/canvaText.png'
 import heroImg1 from '../assets/canvaText1.png'
+import { Link } from 'react-router-dom'
 
 export default function HeroSection(){
     return(
@@ -27,10 +28,12 @@ export default function HeroSection(){
                     <div className="flex-inline items-between text-lg max-w-3xl" id="descp">
                         <span>It automatically explains your code, adds helpful comments, analyzes complexity, and exports clean documentation - making coding easier, clearer, and more fun for everyone 🚀</span>
                     </div>
+                    <Link to="/signup" className="mb-1">
                     <button className='flex items-center sm:mt-0 p-2 border border-[#595959] bg-gradient-to-b from-[#404040] to-[#141414] text-white px-4 py-2 rounded-lg shadow-md hover:from-[#505050] hover:to-[#1f1f1f] transition'>
                         <i className="bi bi-stars mr-3 text-xl mb-1"></i>
                         <div className='mb-1'>Try it out :p</div>
-                    </button>                    
+                    </button>   
+                    </Link>                 
                 </div>
             </div>
         </section>
