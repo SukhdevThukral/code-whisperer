@@ -1,5 +1,36 @@
 import logo from '../assets/starsiegeRemoved.png'
+import { supabase } from '../supabaseClient';
+import { useState } from 'react';
+
 export default function SignUp(){
+
+    const [firstName, setFirstName]= useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const SignUpHandling = async (e) => {
+        e.preventDefault()
+
+        const {data,error} = await supabase.auth.signUp({
+            email,
+            password,
+        })
+
+        if (error) {
+            alert(error.message)
+        } else {
+            alert('abc!')
+
+            await supabase.from('profiles').insert({
+            id: data.user.id,
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            })
+        }
+    }
+
     return(
         <div className="min-h-screen w-full flex bg-black text-white px-5 items-center justify-center"> 
             <div className="w-1/2 h-[95vh] relative overflow-hidden p-16 flex flex-col justify-center items-center text-center rounded-3xl">
@@ -50,28 +81,36 @@ export default function SignUp(){
                         <div className='flex-1 h-px bg-gray-700'></div>
 
                     </div>
-                    <form className="flex flex-col space-y-4">
+                    <form onSubmit={SignUpHandling} className="flex flex-col space-y-4">
                         <div className="grid grid-cols-2 gap-4">
 
                             <div>
                                 <label className='text-sm text-gray-400 mb-2 block'>First Name</label>
-                                <input type="text" placeholder="eg. Smith" className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
+                                <input type="text" 
+                                placeholder="eg. Smith" value={firstName} onChange={e => setFirstName(e.target.value)}
+                                className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
                             </div> 
 
                             <div>
                                 <label className='text-sm text-gray-400 mb-2 block'>Last Name</label>
-                                <input type="text" placeholder="eg. Francisco" className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
+                                <input type="text" 
+                                placeholder="eg. Francisco" value={lastName} onChange={e => setLastName(e.target.value)}
+                                className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
                             </div>
 
                         </div>
                         <div>
                             <label className='text-sm text-gray-400 mb-2 block'>Email</label>
-                            <input type="email" placeholder="eg. smithfrancs@gmail.com" className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
+                            <input type="email" 
+                            placeholder="eg. smithfrancs@gmail.com" value={email} onChange={e => setEmail(e.target.value)}
+                            className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
                         </div>    
                         <div>
                             <label className='text-sm text-gray-400 mb-2 block'>Password</label>
                             <div className='relative'>
-                                <input type="password" placeholder="Enter your password" className="h-12 w-full rounded-lg bg-[#111] px-4 pr-12 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
+                                <input type="password" 
+                                placeholder="Enter your password" value={password} onChange={e => setPassword(e.target.value)}
+                                className="h-12 w-full rounded-lg bg-[#111] px-4 pr-12 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
                                 <button type='button' className='absolute inset-y-0 right-3 flex items-center text-gray-400'>
                                     {/*THIS IS AI GEN SVG PLEASE :3*/}
                                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
