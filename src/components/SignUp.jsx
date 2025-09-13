@@ -12,6 +12,20 @@ export default function SignUp(){
 
     const navigate = useNavigate();
 
+    // Google sign in
+    const handleGoogleSignIn = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: "google",
+            options: {
+                redirectTo: "http://localhost:5173/SignUp",
+            },
+        });
+        if (error){
+            alert(error.message);
+        }
+    };
+
+    //default sign up
     const SignUpHandling = async (e) => {
         e.preventDefault();
 
@@ -67,7 +81,9 @@ export default function SignUp(){
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                        <button type="button" className="w-full h-12 flex items-center justify-center gap-3 border border-gray-700 bg-gray-900 text-white text-md rounded-lg hover:bg-gray-900 transition">
+                        <button type="button" 
+                        onClick={handleGoogleSignIn}
+                        className="w-full h-12 flex items-center justify-center gap-3 border border-gray-700 bg-gray-900 text-white text-md rounded-lg hover:bg-gray-900 transition">
                             {/*THIS IS AI GEN SVG PLEASE :3*/}
                             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
                                 <path d="M21 12.2c0-.63-.06-1.24-.18-1.82H12v3.44h5.45c-.24 1.25-.99 2.31-2.12 3.02v2.5h3.43c2.01-1.85 3.22-4.59 3.22-7.14z" fill="#4285F4"/>
