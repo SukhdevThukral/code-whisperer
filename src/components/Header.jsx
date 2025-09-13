@@ -30,7 +30,7 @@ export default function Header(){
                 </a>
             </nav>
             {/*try ts out button*/}
-            <Link to="/codeScreen" className='mb-1'>
+            <Link to="/SignUp" className='mb-1'>
             <button className='flex items-center mt-3 sm:mt-0 p-2 border border-[#595959] bg-gradient-to-b from-[#404040] to-[#141414] text-white px-4 py-2 rounded-lg shadow-md hover:from-[#505050] hover:to-[#1f1f1f] transition'>
                 <i className="bi bi-stars mr-3 text-xl mb-1"></i>
                 <div className='mb-1'>Try it out :p</div>

@@ -1,35 +1,45 @@
 import logo from '../assets/starsiegeRemoved.png'
 import { supabase } from '../supabaseClient';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp(){
 
-    const [firstName, setFirstName]= useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
+    const [firstName, setFirstName]= useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
 
+    const navigate = useNavigate();
+
     const SignUpHandling = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const {data,error} = await supabase.auth.signUp({
             email,
             password,
-        })
+        });
 
         if (error) {
-            alert(error.message)
-        } else {
-            alert('abc!')
-
-            await supabase.from('profiles').insert({
+            alert(error.message);
+            return;
+        }
+        await supabase.from('profiles').insert({
             id: data.user.id,
             first_name: firstName,
             last_name: lastName,
             email: email,
-            })
+        });
+
+        const {error: signInError} = await supabase.auth.signInWithPassword({email, password});
+        if (signInError) {
+            alert (signInError.message);
+            return;
         }
-    }
+
+        navigate("/codeScreen");
+
+    };
 
     return(
         <div className="min-h-screen w-full flex bg-black text-white px-5 items-center justify-center"> 
