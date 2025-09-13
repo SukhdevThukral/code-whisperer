@@ -3,6 +3,7 @@ import Editor from '@monaco-editor/react';
 import { callAI } from "../ai";                     
 
 export default function CodeEditor(){
+    const [loading, setLoading] = useState(false)
     const [code, setCode] = useState("WRITE YOUR CODE HERE!!")
     const [output, setOutput] = useState('')
 
@@ -10,13 +11,19 @@ export default function CodeEditor(){
         const prompt = type === 'explain'
             ? `youre an expert programming tutor, explaint he followin code to a beginner in simple, step by step lang, include examples if needed:\n\n${code}`
             : `youre an expert software engineer, refactor the following code for readability, efficiency, maintainbility, keep the functionality identical and also explain the changes made:\n\n${code}`;
-
-        const { result, error } = await callAI(prompt);
-
-        if (error) {
-            setOutput("Error: " + error);
-        } else {
-            setOutput(result);
+        
+        setLoading(true);
+        try {
+            const { result, error } = await callAI(prompt);
+            if (error) {
+                setOutput("Error: " + error);
+            } else {
+                setOutput(result || "No output from AI.");
+            }
+        } catch (err) {
+            setOutput("Error: " + err.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -30,16 +37,21 @@ export default function CodeEditor(){
             />
             <div className="mt-4 flex gap-4">
                 <button onClick={() => handleAI('explain')}
-                    className="px-4 py-2 bg-gray">
+                    className="flex items-center sm:mt-0 p-2 border border-[#595959] bg-gradient-to-b from-[#404040] to-[#141414] text-white px-4 py-2 rounded-lg shadow-md hover:from-[#505050] hover:to-[#1f1f1f] transition">
                     Explain Code
                 </button>
                 <button onClick={() => handleAI('refactor')}
-                    className="px-4 py-2 bg-gray">
+                    className="flex items-center sm:mt-0 p-2 border border-[#595959] bg-gradient-to-b from-[#404040] to-[#141414] text-white px-4 py-2 rounded-lg shadow-md hover:from-[#505050] hover:to-[#1f1f1f] transition">
                     Refactor Code
                 </button>
             </div>
-            <div className="mt-4 p-4 bg-gray-800 text-white whitespace-pre-wrap">
-                {output}
+            <div className="mt-4 p-4 bg-[#111] border border-purple-600 max-h-64 overflow-y-auto font-mono text-gray-200 whitespace-pre-wrap">
+                {loading?(
+                    <div className="flex items-center justify-center gap-2">
+                        <div className="w-5 h-5 border-4 border-t-purple-500 border-gray-400 rounded-full animate-spin"/>
+                        <span className="">hmm you got me thinking....</span>
+                    </div>
+                ): (output)}
             </div>
         </div>
     );
