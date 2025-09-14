@@ -13,17 +13,18 @@ export default function SignUp(){
     const navigate = useNavigate();
 
     // Google sign in
-    const handleGoogleSignIn = async () => {
-        const { error } = await supabase.auth.signInWithOAuth({
-            provider: "google",
-            options: {
-                redirectTo: "http://localhost:5173/SignUp",
-            },
-        });
-        if (error){
-            alert(error.message);
-        }
-    };
+    // ugh sucks rn so gotta fix it after my exams T-T
+    // const handleGoogleSignIn = async () => {
+    //     const { error } = await supabase.auth.signInWithOAuth({
+    //         provider: "google",
+    //         options: {
+    //             redirectTo: "http://localhost:5173/SignUp",
+    //         },
+    //     });
+    //     if (error){
+    //         alert(error.message);
+    //     }
+    // };
 
     //default sign up
     const SignUpHandling = async (e) => {
