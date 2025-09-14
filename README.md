@@ -1,5 +1,14 @@
 # 🌟 Presenting Code Whisperer :3
 
+![Work in Progress](https://img.shields.io/badge/Status-WIP-yellow)
+![AI Powered](https://img.shields.io/badge/Powered%20by-AI-blue)
+
+
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white)
+
 **A modern react + tailwind web powered by OpenRouter API for AI support.**
 
 > ⚠️ *Work's in progress – some features(External Authentications and etc) are still under development.*
@@ -81,3 +90,45 @@ VITE_SUPABASE_KEY=your_supabase_key
 
 ---
 
+### ⚠️ STATUS
+Current implemented features:  
+- Code explanation ✅  
+- Comment generation ✅  
+- Complexity analysis ✅
+- Vulnerability check ✅
+- Code Refactorisation ✅
+- Python Support ✅
+
+Features in progress / upcoming:
+- External Auth 🕒  
+- Auto-refactor suggestions 🕒  
+- Multi-language "full" support 🕒 
+- UI refinement🕒
+- Personalized user dashboard 🕒
+
+---
+
+### 🌐 LIVE DEMO
+
+[https://codewhisperer](https://codewhisperer)  
+*(Hosted on Vercel)*
+
+### 🙋‍♂️ AUTHOR
+
+**Sukhdev Thukral**  
+- Email: sukhdevthukral2411@gmail.com  
+- GitHub: [https://github.com/SukhdevThukral](https://github.com/SukhdevThukral)  
+
+---
+
+### ⭐ CONTRIBUTING (i'd love if you do T-T)
+
+1. Fork the repo.
+2. Create a branch (pls) (`git checkout -b feature/my-feature`)
+3. Commit changes (`git commit -m 'Add feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)  
+5. Open a Pull Request  
+
+---
+
+MIT License – see [LICENSE](LICENSE) for details.
