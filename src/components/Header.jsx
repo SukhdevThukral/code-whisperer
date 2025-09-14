@@ -20,7 +20,7 @@ export default function Header(){
                     <img src={meGIF} alt='meIcon' className='w-9 h-9 mr-2 object-contain'/>
                     me me me
                 </a>
-                <a href='#' className='flex items-center transition-colors duration-200'>
+                <a href='https://github.com/SukhdevThukral/code-whisperer/blob/master/README.md' className='flex items-center transition-colors duration-200'>
                     <img src={meGIF} alt='meIcon' className='w-9 h-9 mr-2 object-contain'/>
                     readme
                 </a>
