@@ -19,6 +19,7 @@
 - 🌐 **Hosting** – Vercel with free custom domain .
 - ⚡ **Optimized & Fast** – Lightweight, minimal bundle size (YET)
 
+---
 
 ## 🛠 Tech Stack
 
@@ -29,3 +30,54 @@
 | Database        |         Supabase        |
 | Hosting         |          Vercel         |
 | Version Control |          GitHub         |   
+
+---
+
+## 💻 GETTING STARTED
+### 1. Clone the repository
+```bash
+
+git clone https://github.com/SukhdevThukral/code-whisperer
+cd code-whisperer
+
+```
+
+### 2. Install dependencies
+
+```bash
+
+npm install
+
+```
+
+### 3. Run locally
+
+```bash 
+
+npm start
+
+```
+
+### 4. Build for production
+
+```bash 
+
+npm run build
+
+```
+
+---
+
+### ⚙️ ENVIRONMENT VARIABLES
+**Create your own .env file in the root and add your API keys (its already in .gitignore tho):**
+
+```bash
+
+VITE_OPENROUTER_KEY=your_openrouter_api_key
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_KEY=your_supabase_key
+
+```
+
+---
+
