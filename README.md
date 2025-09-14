@@ -6,7 +6,7 @@
 
 ---
 
-![CodeWhisperer Banner](./banner.png)
+![CodeWhisperer Banner](src/assets/starsiegeRemoved.png)
 
 ---
 
@@ -21,12 +21,11 @@
 
 
 ## 🛠 Tech Stack
-____________________________________________
+
 | Layer           | Technology              |
 |-----------------|-------------------------|
 | Frontend        | React.js + Tailwind CSS |
 | AI / Backend    | OpenRouter API (OpenAI) |
 | Database        |         Supabase        |
 | Hosting         |          Vercel         |
-| Version Control |          GitHub         |    
-|___________________________________________|
+| Version Control |          GitHub         |   
