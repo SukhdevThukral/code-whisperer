@@ -1,32 +1,36 @@
 @import "tailwindcss";
+
 @font-face {
-    font-family: 'Franca';
-    src: url('assets/fonts/Rene\ Bieder\ -\ Franca\ DEMO\ Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Proxima';
-    src: url('assets/fonts/ProximaSoft-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Franca';
+  src: url('./assets/fonts/franca-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Proxima';
-    src: url('assets/fonts/ProximaSoft-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Proxima';
+  src: url('./assets/fonts/ProximaSoft-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
-    font-family: 'Proxima';
-    src: url('assets/fonts/ProximaSoft-RegularIt.woff') format('woff');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
+  font-family: 'Proxima';
+  src: url('./assets/fonts/ProximaSoft-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Proxima';
+  src: url('./assets/fonts/ProximaSoft-RegularIt.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 
 #logoText{
     font-family: 'Franca', sans-serif;
