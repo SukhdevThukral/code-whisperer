@@ -16,7 +16,7 @@ export default function HeroSection(){
                         className="rounded-lg shadow-lg w-full h-[750px] max-w-[1990px]"
                     />
                 </div>
-                <div className="flex flex-col md:flex-row items-center justify-between ml-5 mr-5">
+                <div className="flex flex-col md:flex-row items-center justify-between">
                     <div className="space-y-9 max-w-xl">
                         <div className="inline-flex items-center rounded-md bg-[#242424] px-3 py-1 text-sm text-gray-300 shadow-md" id="badge">
                             <i class="bi bi-cpu mr-2 p-[1px]"></i>
