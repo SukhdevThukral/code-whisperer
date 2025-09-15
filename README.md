@@ -18,6 +18,12 @@
 ![CodeWhisperer Banner](src/assets/screenshot.png)
 
 ---
+### Project Workflow for New Users:
+1. Click the button given in the Header or at the end of the HeroSection.
+2. (Google / Github AUTH DOESNT WORK IM SORRY T-T) Enter your credentials and it will redirect you to the codeScreen
+3. ENJOY!! 
+
+---
 
 ## 🚀 FEATURES
 
