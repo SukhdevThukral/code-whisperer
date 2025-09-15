@@ -14,6 +14,7 @@ export default function SignUp() {
     const SignUpHandling = async (e) => {
         e.preventDefault();
 
+        // 1️⃣ Sign Up User
         const { data, error } = await supabase.auth.signUp({
             email,
             password,
@@ -24,6 +25,7 @@ export default function SignUp() {
             return;
         }
 
+        // 2️⃣ Insert User Profile
         await supabase.from('profiles').insert({
             id: data.user.id,
             first_name: firstName,
@@ -31,17 +33,26 @@ export default function SignUp() {
             email: email,
         });
 
-        alert('Signup successful! Please check your email and confirm your account before logging in.');
-        navigate('/signin');
+        // 3️⃣ Immediately Sign In
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        });
+
+        if (signInError) {
+            alert(signInError.message);
+            return;
+        }
+
+        // 4️⃣ Redirect to /codeScreen
+        navigate('/codeScreen');
     };
 
     return (
         <div className="min-h-screen w-full flex bg-black text-white px-5 items-center justify-center"> 
             <div className="w-1/2 h-[95vh] relative overflow-hidden p-16 flex flex-col justify-center items-center text-center rounded-3xl">
-
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,1),rgba(0,0,0,1))]" />
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[160%] h-[60%] bg-[radial-gradient(circle,rgba(236,72,153,0.5),transparent)] blur-2xl opacity-70" />
-                
                 <div className="relative z-10 flex flex-col items-center">
                     <span className="text-white font-bold text-4xl flex flex-inline" id="crap">
                         <img src={logo} className="w-15 h-15"/>
