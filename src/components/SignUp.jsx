@@ -16,6 +16,7 @@ export default function SignUp() {
 
         if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim()) {
             alert('Please fill in all fields: First Name, Last Name, Email, and Password.')
+            return;
         }
 
         const { data, error } = await supabase.auth.signUp({
