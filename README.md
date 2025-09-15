@@ -15,7 +15,7 @@
 
 ---
 
-![CodeWhisperer Banner](src/assets/starsiegeRemoved.png)
+![CodeWhisperer Banner](src/assets/screenshot.png)
 
 ---
 
