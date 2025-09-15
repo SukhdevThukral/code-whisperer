@@ -15,7 +15,7 @@
 
 ---
 
-![CodeWhisperer Banner](src/assets/starsiegeRemoved.png)
+![CodeWhisperer Banner](src/assets/screenshot.png)
 
 ---
 
@@ -110,7 +110,7 @@ Features in progress / upcoming:
 
 ### 🌐 LIVE DEMO
 
-[https://codewhisperer](https://codewhisperer)  
+[https://code-whisperer-plum.vercel.app/](https://code-whisperer-plum.vercel.app/)  
 *(Hosted on Vercel)*
 
 ### 🙋‍♂️ AUTHOR
