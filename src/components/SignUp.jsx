@@ -14,7 +14,10 @@ export default function SignUp() {
     const SignUpHandling = async (e) => {
         e.preventDefault();
 
-        // 1️⃣ Sign Up User
+        if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim()) {
+            alert('Please fill in all fields: First Name, Last Name, Email, and Password.')
+        }
+
         const { data, error } = await supabase.auth.signUp({
             email,
             password,
@@ -25,15 +28,13 @@ export default function SignUp() {
             return;
         }
 
-        // 2️⃣ Insert User Profile
         await supabase.from('profiles').insert({
             id: data.user.id,
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
+            first_name: firstName.trim(),
+            last_name: lastName.trim(),
+            email: email.trim(),
         });
 
-        // 3️⃣ Immediately Sign In
         const { error: signInError } = await supabase.auth.signInWithPassword({
             email,
             password,
@@ -44,7 +45,7 @@ export default function SignUp() {
             return;
         }
 
-        // 4️⃣ Redirect to /codeScreen
+        // Redirect to /codeScreen
         navigate('/codeScreen');
     };
 
@@ -101,7 +102,7 @@ export default function SignUp() {
                     <form onSubmit={SignUpHandling} className="flex flex-col space-y-4">
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <label className="text-sm text-gray-400 mb-2 block">First Name</label>
+                                <label className="text-sm text-gray-400 mb-2 block">First Name*</label>
                                 <input type="text"
                                     placeholder="eg. Smith"
                                     value={firstName}
@@ -110,7 +111,7 @@ export default function SignUp() {
                             </div> 
 
                             <div>
-                                <label className="text-sm text-gray-400 mb-2 block">Last Name</label>
+                                <label className="text-sm text-gray-400 mb-2 block">Last Name*</label>
                                 <input type="text"
                                     placeholder="eg. Francisco"
                                     value={lastName}
@@ -120,7 +121,7 @@ export default function SignUp() {
                         </div>
 
                         <div>
-                            <label className="text-sm text-gray-400 mb-2 block">Email</label>
+                            <label className="text-sm text-gray-400 mb-2 block">Email*</label>
                             <input type="email"
                                 placeholder="eg. smithfrancs@gmail.com"
                                 value={email}
@@ -129,7 +130,7 @@ export default function SignUp() {
                         </div>    
 
                         <div>
-                            <label className="text-sm text-gray-400 mb-2 block">Password</label>
+                            <label className="text-sm text-gray-400 mb-2 block">Password*</label>
                             <div className="relative">
                                 <input type="password"
                                     placeholder="Enter your password"
