@@ -12,43 +12,52 @@ export default function SignUp() {
     const navigate = useNavigate();
 
     const SignUpHandling = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim()) {
-            alert('Please fill in all fields: First Name, Last Name, Email, and Password.')
-            return;
-        }
+    if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim()) {
+        alert('Please fill in all fields: First Name, Last Name, Email, and Password.');
+        return;
+    }
 
-        const { data, error } = await supabase.auth.signUp({
-            email,
-            password,
-        });
-
-        if (error) {
-            alert(error.message);
-            return;
-        }
-
-        await supabase.from('profiles').insert({
-            id: data.user.id,
-            first_name: firstName.trim(),
-            last_name: lastName.trim(),
-            email: email.trim(),
-        });
-
-        const { error: signInError } = await supabase.auth.signInWithPassword({
+    try {
+        const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
             email,
             password,
         });
 
         if (signInError) {
-            alert(signInError.message);
-            return;
+            if (signInError.message.includes("Invalid login credentials")) {
+                const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+                    email,
+                    password,
+                });
+
+                if (signUpError) {
+                    alert(signUpError.message);
+                    return;
+                }
+
+                await supabase.from('profiles').insert({
+                    id: signUpData.user.id,
+                    first_name: firstName.trim(),
+                    last_name: lastName.trim(),
+                    email: email.trim(),
+                });
+
+                await supabase.auth.signInWithPassword({ email, password });
+            } else {
+                alert(signInError.message);
+                return;
+            }
         }
 
-        // Redirect to /codeScreen
         navigate('/codeScreen');
-    };
+    } catch (err) {
+        console.error(err);
+        alert("Something went wrong.");
+    }
+};
+
 
     return (
         <div className="min-h-screen w-full flex bg-black text-white px-5 items-center justify-center"> 
@@ -68,8 +77,8 @@ export default function SignUp() {
             <div className="hidden md:flex md:w-1/2 p-10 items-center justify-center">
                 <div className="w-full max-w-md mx-auto flex flex-col space-y-6">
                     <div className="text-center">
-                        <h2 className="text-3xl font-semibold">Create Account</h2>
-                        <p className="text-gray-400 mt-2">Enter your data to create an account!!</p>
+                        <h2 className="text-3xl font-semibold">Create Account / Log In</h2>
+                        <p className="text-gray-400 mt-2">Enter your data to access your account!!</p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
@@ -157,11 +166,6 @@ export default function SignUp() {
                             </button>
                         </div>
                     </form>
-
-                    <p className="text-center text-gray-400">
-                        Already have an account?
-                        <a href="/signin" className="text-white font-medium hover:underline"> Log in</a>
-                    </p>
                 </div>  
             </div>
         </div>
