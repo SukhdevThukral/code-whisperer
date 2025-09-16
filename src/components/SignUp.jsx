@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -14,8 +12,8 @@ export default function SignUp() {
     const SignUpHandling = async (e) => {
     e.preventDefault();
 
-    if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim()) {
-        alert('Please fill in all fields: First Name, Last Name, Email, and Password.');
+    if (!email.trim() || !password.trim()) {
+        alert('Please fill in all fields.');
         return;
     }
 
@@ -36,13 +34,6 @@ export default function SignUp() {
                     alert(signUpError.message);
                     return;
                 }
-
-                await supabase.from('profiles').insert({
-                    id: signUpData.user.id,
-                    first_name: firstName.trim(),
-                    last_name: lastName.trim(),
-                    email: email.trim(),
-                });
 
                 await supabase.auth.signInWithPassword({ email, password });
             } else {
@@ -110,25 +101,6 @@ export default function SignUp() {
                     </div>
 
                     <form onSubmit={SignUpHandling} className="flex flex-col space-y-4">
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <label className="text-sm text-gray-400 mb-2 block">First Name*</label>
-                                <input type="text"
-                                    placeholder="eg. Smith"
-                                    value={firstName}
-                                    onChange={e => setFirstName(e.target.value)}
-                                    className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
-                            </div> 
-
-                            <div>
-                                <label className="text-sm text-gray-400 mb-2 block">Last Name*</label>
-                                <input type="text"
-                                    placeholder="eg. Francisco"
-                                    value={lastName}
-                                    onChange={e => setLastName(e.target.value)}
-                                    className="h-12 w-full rounded-lg bg-[#111] px-4 placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-1 focus:ring-purple-500"/>
-                            </div>
-                        </div>
 
                         <div>
                             <label className="text-sm text-gray-400 mb-2 block">Email*</label>
